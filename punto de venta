@@ -1,0 +1,119 @@
+#include <iostream>
+#include <stdlib.h>
+using namespace std;
+
+int main(){
+    
+    string registro[12]={"7501165011786","75010738009080","7501025403355","7501017006021","78742267913","7501011123588","16000446878","7501109752119","7720400808","70942303071","7501031302741","3Q1941234091113512"};
+    string nombre[12]={"Pharmaton capsulas","Peñafiel","Pinol Multilimpiador","La costeña Chipotles","Jarabe Sabor Maple","Doritos nacho","Nature Valley barras de granola","Paracetamol","Toscanas","Raquetas de hilo dental G.U.M","Refresco Pepsi","Disney Toy Story Tiny Big Feet Lotso"};
+    float precio[12]={281.86,20,30.50,9.00,62.40,11.00,38.50,52.00,13.00,91.95,7.00,8.99};
+    int exist[12]={1,2,3,4,5,6,7,8,9,10,11,12};
+	string x;
+	int y, c, p;
+	float r,r2;
+	int k;
+    
+   
+    
+    do{
+    	
+     y=0;
+    c=0;
+    p=0;
+    r=0;
+    	
+    system("cls");
+    cout << "Punto de venta" << endl;
+    cout << "" << endl;
+    cout << "Inserte 1 = Consultar precio" << endl;
+    cout << "Inserte 2 = Consultar existencias" << endl;
+    cout << "Inserte 3 = Realizar compra" << endl;
+    cout << "Inserte 4 = Cerrar caja" << endl;
+    
+    cin >> k;
+    system("cls");
+    switch(k){
+    	
+    case 1:
+    	cout << "Ingrese el codigo del producto" << endl;
+    	
+    	cin >> x;
+    	
+    	for (c=0;c<=12;c++){
+        if (x==registro[c]){
+           y=c;
+           p=1;                   
+        }  
+        }
+		if(p==1){
+	    cout << nombre[y] << " tiene un precio de: " << precio[y] << endl;
+	}
+	if(p==0){
+	cout << "El producto no existe" << endl;	
+	}
+	system("pause");
+    break;
+    case 2:
+    	cout << "Ingrese el codigo del producto" << endl;
+			cout << "Para cerrar la venta presione 0" << endl;
+    	
+    	cin >> x;
+    	
+    	for (c=0;c<=12;c++){
+        if (x==registro[c]){
+           y=c;
+           p=1;                   
+        }  
+        }
+		if(p==1){
+	    cout << nombre[y] << " tiene una existencia de: " << exist[y] << endl;
+	}
+	if(p==0){
+	cout << "El producto no existe" << endl;	
+	}
+	system("pause");
+    break;
+    
+    case 3:
+    	
+    	cout << "Inserte el codigo de los productos" << endl;
+    	
+    	do{
+    	y=0;
+    	
+    cin >> x;	
+    	
+    if(x!="0"){
+     for (c=0;c<=12;c++){
+        if (x==registro[c]){
+           y=c;
+           p=1;                   
+        }  
+        }
+		if(p==1){
+	cout << nombre[y] << " " << precio[y] << endl;
+	r=r+precio[y];
+	r2=r2+precio[y];
+	}	
+		}
+		
+	if(p==0){
+	cout << "El producto no existe" << endl;	
+	}
+	
+	}while (x!="0");
+    
+    cout << "El precio total de los productos es: " << r << endl;
+    
+    cout << "" << endl;
+    system("pause");
+    break;
+    case 4:
+    	cout<<"Las ventas totales fueron de $ "<< r2 <<endl;
+    	return 0;
+	}
+    	
+}while(k!=0);
+    
+    return 0;
+    }
